@@ -26,7 +26,11 @@ $m = 23.12379812;
 
 #b)
 
-function calculadora(int $num1, int $num2, string $char): int
+$num1 = $_POST['num1'];
+$num2 = $_POST['num2'];
+$char = $_POST['char'];
+
+function calculadora(int $num1, int $num2, string $char)
 {
     if ($char === '+') {
         return $num1 + $num2;
@@ -38,6 +42,8 @@ function calculadora(int $num1, int $num2, string $char): int
         return $num1 / $num2;
     }
 }
+
+
 
 
 ?>
@@ -58,6 +64,10 @@ function calculadora(int $num1, int $num2, string $char): int
             font-family: 'Courier New', Courier, monospace;
             display: grid;
             place-content: center;
+        }
+
+        option {
+            font-size: large;
         }
     </style>
 </head>
@@ -137,9 +147,26 @@ function calculadora(int $num1, int $num2, string $char): int
 
     <!-- b) -->
 
-    <?= 
-    calculadora(1,2,'-');
-    ?>
+    <form action="nivel_1.php" method="post">
+        <input type="number" name="num1">
+        <select name="char">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" name="num2">
+        <input type="submit" value="Calcular">
+        <p style="display: inline;">El resultado es:
+            <strong>
+                <?=
+                calculadora($num1, $num2, $char);
+                ?>
+            </strong>
+
+        </p>
+    </form>
+
 
 </body>
 
