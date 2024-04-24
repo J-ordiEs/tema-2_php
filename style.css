@@ -1,0 +1,13 @@
+:root {
+    color-scheme: light dark;
+}
+
+* {
+    margin: 5px;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    display: grid;
+    place-content: center;
+}

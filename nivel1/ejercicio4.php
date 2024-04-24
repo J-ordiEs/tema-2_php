@@ -14,6 +14,23 @@ function contar(int $hasta = 10, int $de = 1): void
 }
 
 ?>
+
+<style>
+    :root {
+        color-scheme: light dark;
+    }
+
+    body {
+        font-family: 'Courier New', Courier, monospace;
+        display: grid;
+        place-content: center;
+    }
+
+    option {
+        font-size: large;
+    }
+</style>
+
 <form action="ejercicio4.php" method="post">
     <label for="hasta">
         ¿Hasta cuánto deseas contar?
@@ -27,18 +44,3 @@ function contar(int $hasta = 10, int $de = 1): void
     <input type="submit" value="Contar">
 </form>
 <p><?= contar($hasta, $de) ?></p>
-
-<style>
-    :root {
-            color-scheme: light dark;
-        }
-        * {
-            margin: 5px;
-        }
-
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            display: grid;
-            place-content: center;
-        }
-</style>
