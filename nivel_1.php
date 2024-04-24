@@ -15,6 +15,7 @@ $greeting = "Hello, World!";
 $curse = "Este es el curso de PHP";
 
 #ejercicio 3
+
 #a)
 $x = 1;
 
@@ -30,8 +31,9 @@ $num1 = $_POST['num1'];
 $num2 = $_POST['num2'];
 $char = $_POST['char'];
 
-function calculadora(int $num1, int $num2, string $char)
+function calculadora(int $num1 = 0,  $num2, string $char)
 {
+    
     if ($char === '+') {
         return $num1 + $num2;
     } elseif ($char === '-') {
@@ -42,9 +44,6 @@ function calculadora(int $num1, int $num2, string $char)
         return $num1 / $num2;
     }
 }
-
-
-
 
 ?>
 
@@ -150,23 +149,25 @@ function calculadora(int $num1, int $num2, string $char)
     <form action="nivel_1.php" method="post">
         <input type="number" name="num1">
         <select name="char">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
+            <option value="+">➕</option>
+            <option value="-">➖</option>
+            <option value="*">✖</option>
+            <option value="/">➗</option>
         </select>
         <input type="number" name="num2">
         <input type="submit" value="Calcular">
         <p style="display: inline;">El resultado es:
             <strong>
-                <?=
-                calculadora($num1, $num2, $char);
-                ?>
+                <?= calculadora(10, 2, '+');?>
             </strong>
-
         </p>
     </form>
 
+    <!-- ejercicio 4 -->
+
+    <p>
+        <?= contar(10) ?>
+    </p>
 
 </body>
 
