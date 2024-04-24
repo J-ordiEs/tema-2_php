@@ -6,7 +6,8 @@ Charlie me mordió el dedo! Charlie te morderá el dedo exactamente el 50% del t
 Escribe La función isBitten () que devuelve TRUE con un 50% de probabilidad y FALSE de lo contrario.
 */
 
-function isBitten() : bool {
+function isBitten(): bool
+{
     return rand(0, 1);
 }
 
@@ -14,12 +15,12 @@ function isBitten() : bool {
 
 <link rel="stylesheet" href="../style.css">
 
-<?php if (isBitten()): ?>
+<?php if (isBitten()) : ?>
 
-html code to run if condition is true
+    <strong>true</strong>
 
-<?php else: ?>
+<?php else : ?>
 
-html code to run if condition is false
+    <strong>false</strong>
 
 <?php endif ?>
