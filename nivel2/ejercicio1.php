@@ -7,13 +7,18 @@ Toda llamada que dure menos de 3 minutos tiene un coste de 10 céntimos.
 Cada minuto adicional a partir de los 3 primeros es un paso de contador y cuesta 5 céntimos.
 */
 
+setlocale(LC_MONETARY, 'es_ES');
+
 $minuto = isset($_POST['min']) ? $_POST['min'] : 0;
 
-function precioLlamada($min) {
-    if ($min) {
-        echo "\$ valor es de 3";
+function precioLlamada($min): float {
+    $costeLlamada = 0.10;
+    if ($min > 3) {
+        $costeLlamada += ($min - 3) * 0.05;
     }
+    return $costeLlamada ;
 }
+
 ?>
 
 <link rel="stylesheet" href="../style.css">
@@ -21,8 +26,11 @@ function precioLlamada($min) {
 <form action="../nivel2/ejercicio1.php" method="post">
 
     <input type="number" name="min" >
+    <input type="submit" value="Enviar">
 
 </form>
 
 
-<?= precioLlamada($min)?>
+<p>
+    El coste de la llamada es: <?= precioLlamada($minuto)?>
+</p>
