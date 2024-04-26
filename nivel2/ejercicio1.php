@@ -11,12 +11,12 @@ setlocale(LC_MONETARY, 'es_ES');
 
 $minuto = isset($_POST['min']) ? $_POST['min'] : 0;
 
-function precioLlamada($min): float {
+function precioLlamada($min): string {
     $costeLlamada = 0.10;
     if ($min > 3) {
         $costeLlamada += ($min - 3) * 0.05;
     }
-    return $costeLlamada ;
+    return sprintf("%.2f", floatval($costeLlamada));
 }
 
 ?>
@@ -32,5 +32,5 @@ function precioLlamada($min): float {
 
 
 <p>
-    El coste de la llamada es: <?= precioLlamada($minuto)?>
+    El coste de la llamada es: <?= "€" .  precioLlamada($minuto)?>
 </p>
